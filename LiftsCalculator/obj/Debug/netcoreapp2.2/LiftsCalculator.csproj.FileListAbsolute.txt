@@ -1,0 +1,11 @@
+D:\Documents\git\LiftsCalculator\LiftsCalculator\bin\Debug\netcoreapp2.2\LiftsCalculator.deps.json
+D:\Documents\git\LiftsCalculator\LiftsCalculator\bin\Debug\netcoreapp2.2\LiftsCalculator.runtimeconfig.json
+D:\Documents\git\LiftsCalculator\LiftsCalculator\bin\Debug\netcoreapp2.2\LiftsCalculator.runtimeconfig.dev.json
+D:\Documents\git\LiftsCalculator\LiftsCalculator\bin\Debug\netcoreapp2.2\LiftsCalculator.dll
+D:\Documents\git\LiftsCalculator\LiftsCalculator\bin\Debug\netcoreapp2.2\LiftsCalculator.pdb
+D:\Documents\git\LiftsCalculator\LiftsCalculator\obj\Debug\netcoreapp2.2\LiftsCalculator.csprojAssemblyReference.cache
+D:\Documents\git\LiftsCalculator\LiftsCalculator\obj\Debug\netcoreapp2.2\LiftsCalculator.csproj.CoreCompileInputs.cache
+D:\Documents\git\LiftsCalculator\LiftsCalculator\obj\Debug\netcoreapp2.2\LiftsCalculator.AssemblyInfoInputs.cache
+D:\Documents\git\LiftsCalculator\LiftsCalculator\obj\Debug\netcoreapp2.2\LiftsCalculator.AssemblyInfo.cs
+D:\Documents\git\LiftsCalculator\LiftsCalculator\obj\Debug\netcoreapp2.2\LiftsCalculator.dll
+D:\Documents\git\LiftsCalculator\LiftsCalculator\obj\Debug\netcoreapp2.2\LiftsCalculator.pdb
