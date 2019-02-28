@@ -8,8 +8,22 @@ namespace LiftsCalculator
     {
         public static void Main(string[] args)
         {
-            CreateCycle();
-            Console.ReadLine();
+            var shouldCreate = true;
+            while (shouldCreate)
+            {
+                CreateCycle();
+                Console.WriteLine("Create a new one? (y/n)");
+                var line = Console.ReadLine();
+                while (line != "n" && line != "y" && line != "N" && line != "Y")
+                {
+                    Console.WriteLine("Create a new one? (y/n)");
+                    line = Console.ReadLine();
+                }
+                if (line == "n")
+                {
+                    shouldCreate = false;
+                }
+            }
         }
 
         private static void CreateCycle()
@@ -27,12 +41,12 @@ namespace LiftsCalculator
             {
                 var exercises = new List<Exercise>
                     {
-                        new Exercise("Overhead", 45),
-                        new Exercise("Deadlift", 130),
-                        new Exercise("Bench", 80),
-                        new Exercise("Squat", 100)
+                        new Exercise("Overhead", 45, 2.5m),
+                        new Exercise("Deadlift", 130, 5),
+                        new Exercise("Bench", 80, 2.5m),
+                        new Exercise("Squat", 100, 5)
                     };
-                var cycle = new Cycle(cycleNumber, 6, exercises, exercises);
+                var cycle = new Cycle(cycleNumber, exercises, exercises);
 
                 var cycleRenderer = new CycleRenderer(cycle);
                 RenderDependingOfWeek(cycleRenderer);

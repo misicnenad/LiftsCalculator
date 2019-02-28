@@ -32,27 +32,62 @@ namespace LiftsCalculator
 
         private void RenderWeek(Week week)
         {
-            Console.WriteLine(new String(' ', 20) + $"---------" + new String(' ', 20));
-            Console.WriteLine(new String(' ', 20) + $"|Week: {week.WeekNumber}|" + new String(' ', 20));
-            Console.WriteLine(new String(' ', 20) + $"---------" + new String(' ', 20));
+            Console.WriteLine(new string(' ', 20) + $"---------");
+            Console.WriteLine(new string(' ', 20) + $"|Week: {week.WeekNumber}|");
+            Console.WriteLine(new string(' ', 20) + $"---------");
+            Console.WriteLine(new string(' ', 34) + "MAIN");
 
-            foreach (Exercise ex in week.MainExercises)
+            foreach (ExerciseConfiguration ec in week.MainExerciseConfigurations)
             {
-                Console.Write("|{0, -10}|", ex.Name);
+                Console.Write("|{0, 16}|", ec.Exercise.Name);
             }
-            Console.WriteLine("\n" + new String('-', 48));
+            Console.WriteLine("\n" + new string('-', 48));
+            Console.WriteLine(new string(' ', 30) + "TRAINING MAX");
 
-            // TODO write out main exercises
-
-            foreach (Exercise ex in week.AssistanceExercises)
+            foreach (ExerciseConfiguration ec in week.MainExerciseConfigurations)
             {
-                Console.Write("|{0, -10}|", ex.Name);
+                Console.Write("|{0, 16}|", ec.Exercise.TrainingMax);
             }
-            Console.WriteLine("\n" + new String('-', 48));
+            Console.WriteLine("\n" + new string('-', 48));
+
+            var set = 0;
+            while (set < week.MainSets)
+            {
+                foreach (ExerciseConfiguration ec in week.MainExerciseConfigurations)
+                {
+                    var execution = ec.Executions.ElementAt(set);
+                    Console.Write("|{0}% x {1}{2} - {3, 5}|", 
+                        execution.Percentage, 
+                        execution.Reps, 
+                        execution.Amrap ? "+" : " ", 
+                        ec.GetExecutionWeight(set));
+                }
+                Console.WriteLine();
+                set++;
+            }
+            Console.WriteLine("\n" + new string('-', 48));
+            Console.WriteLine(new string(' ', 37) + "ASSISSTANCE");
+
+            foreach (ExerciseConfiguration ec in week.AssistanceExerciseConfigurations)
+            {
+                Console.Write("|{0, 20}|", ec.Exercise.Name);
+            }
+            Console.WriteLine("\n" + new string('-', 48));
+
+            foreach (ExerciseConfiguration ec in week.AssistanceExerciseConfigurations)
+            {
+                var execution = ec.Executions.First();
+                Console.Write("|{0}% x {1} x {2} - {3, 5}|", 
+                    execution.Percentage, 
+                    execution.Sets,
+                    execution.Reps, 
+                    ec.GetExecutionWeight(0));
+            }
+            Console.WriteLine("\n" + new string('-', 48));
 
             // TODO write out assisstance exercises
 
-            Console.WriteLine("\n" + new String('=', 48) + "\n\n");
+            Console.WriteLine("\n" + new string('=', 48) + "\n\n");
         }
     }
 }
