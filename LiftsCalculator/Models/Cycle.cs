@@ -48,9 +48,9 @@ namespace LiftsCalculator.Models
         {
             var mec = new List<ExecutionConfiguration>
                 {
-                    new ExecutionConfiguration(1, 3, _firstSetBasePercentage + 5, false),
-                    new ExecutionConfiguration(1, 3, _secondSetBasePercentage + 5, false),
-                    new ExecutionConfiguration(1, 3, _thirdSetBasePercentage + 5, true)
+                    new ExecutionConfiguration(1, 3, _firstSetBasePercentage + _percentageIncreasePerWeek, false),
+                    new ExecutionConfiguration(1, 3, _secondSetBasePercentage + _percentageIncreasePerWeek, false),
+                    new ExecutionConfiguration(1, 3, _thirdSetBasePercentage + _percentageIncreasePerWeek, true)
                 };
             var aec = new List<ExecutionConfiguration>
                 {
@@ -63,9 +63,9 @@ namespace LiftsCalculator.Models
         {
             var mec = new List<ExecutionConfiguration>
                 {
-                    new ExecutionConfiguration(1, 5, _firstSetBasePercentage + 10, false),
-                    new ExecutionConfiguration(1, 3, _secondSetBasePercentage + 10, false),
-                    new ExecutionConfiguration(1, 1, _thirdSetBasePercentage + 10, true)
+                    new ExecutionConfiguration(1, 5, _firstSetBasePercentage + 2 * _percentageIncreasePerWeek, false),
+                    new ExecutionConfiguration(1, 3, _secondSetBasePercentage + 2 * _percentageIncreasePerWeek, false),
+                    new ExecutionConfiguration(1, 1, _thirdSetBasePercentage + 2 * _percentageIncreasePerWeek, true)
                 };
             var aec = new List<ExecutionConfiguration>
                 {
@@ -77,8 +77,8 @@ namespace LiftsCalculator.Models
         private Week CreateWeekFromExecConfigs(
             int cycleNumber,
             int weekNumber,
-            List<ExecutionConfiguration> mec, 
-            List<ExecutionConfiguration> aec, 
+            List<ExecutionConfiguration> mec,
+            List<ExecutionConfiguration> aec,
             ICollection<Exercise> mainExercises,
             ICollection<Exercise> assisstanceExercises)
         {

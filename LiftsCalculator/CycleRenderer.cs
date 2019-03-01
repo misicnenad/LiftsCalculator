@@ -39,7 +39,10 @@ namespace LiftsCalculator
 
             foreach (ExerciseConfiguration ec in week.MainExerciseConfigurations)
             {
-                Console.Write("|{0, 16}|", ec.Exercise.Name);
+                var exerciseName = ec.Exercise.Name;
+                var emptySpaceWidth = (16 - exerciseName.Length) / 2;
+                var str = $"{{0, {emptySpaceWidth + exerciseName.Length}}}";
+                Console.Write("|" + str + new string(' ', emptySpaceWidth) + "|", exerciseName);
             }
             Console.WriteLine("\n" + new string('-', 48));
             Console.WriteLine(new string(' ', 30) + "TRAINING MAX");
